@@ -22,8 +22,13 @@ public class CustomCharArray {
     }
 
     public boolean add(Character character) {
-        return values.add(character);
+        if (!values.contains(character)) {
+            return values.add(character);
+        } else {
+            return false;
+        }
     }
+    
 
     public boolean remove(Character character) {
         return values.remove(character);
