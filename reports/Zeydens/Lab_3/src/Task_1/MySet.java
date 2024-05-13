@@ -9,16 +9,20 @@ public class MySet {
         this.set = set;
         this.capacity = this.set.length;
     }
+    MySet(MySet set) {
+        this.set = set.set;
+        this.capacity = this.set.length;
+    }
     public int[] getSet() {return this.set;}
     public int getSetCapacity() {return this.capacity;}
-    public void union(int[] set) {
+    public void union(MySet set) {
         if(this.isEmpty()) {
-            this.set = set;
+            this.set = set.set;
             this.capacity = this.set.length;
             return;
         }
-        for(int i = 0; i < set.length; ++i) {
-            this.add(set[i]);
+        for(int i = 0; i < set.capacity; ++i) {
+            this.add(set.set[i]);
         }
     }
     public void print() {

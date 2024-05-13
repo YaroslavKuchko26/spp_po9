@@ -37,7 +37,8 @@ public class Main {
                         int temp = Integer.parseInt(in.next());
                         array[i] = temp;
                     }
-                    set.union(array);
+                    MySet setToUnite = new MySet(array);
+                    set.union(setToUnite);
                     break;
                 }
                 case 4: {
