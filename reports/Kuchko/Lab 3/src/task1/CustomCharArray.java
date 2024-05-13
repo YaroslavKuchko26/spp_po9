@@ -22,7 +22,7 @@ public class CustomCharArray {
     }
 
     public boolean add(Character character) {
-        return !values.contains(character) && values.add(character);
+        return values.add(character);
     }
 
     public boolean remove(Character character) {

@@ -1,9 +1,11 @@
 package org.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         Dictionary dictionary = new Dictionary();
-        dictionary.readFile(args[0]);
 
         System.out.println("dictionary by alphabet");
         System.out.println(dictionary.getItemsByAlphabet());
@@ -32,7 +34,25 @@ public class Main {
         System.out.println(dictionary.getItemsByRequests());
         System.out.println();
 
-        System.out.println("dictionary.search(\"alphabet\")");
-        System.out.println(dictionary.search("alphabet"));
+        System.out.println("dictionary.search(\"собака\")");
+        System.out.println(dictionary.search("собака")); // Пример запроса слова из словаря
+    }
+}
+
+class Dictionary {
+    private Map<String, Integer> wordCountMap;
+
+    public Dictionary() {
+        wordCountMap = new HashMap<>();
+    }
+
+    public String search(String word) {
+        if (wordCountMap.containsKey(word)) {
+            int count = wordCountMap.get(word);
+            wordCountMap.put(word, count + 1);
+            return "Word found!";
+        } else {
+            return "Word not found!";
+        }
     }
 }
